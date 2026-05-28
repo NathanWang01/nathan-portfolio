@@ -4,11 +4,11 @@ import { motion, useInView } from 'framer-motion'
 import { skills } from '@/lib/skills'
 
 export default function About() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" className="py-24 px-6" ref={ref}>
+    <section id="about" aria-label="About" className="py-24 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -42,19 +42,20 @@ export default function About() {
                 <h3 className="text-text-muted uppercase text-xs tracking-widest font-medium mb-3">
                   {category}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
                   {items.map((skill, i) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.3, delay: 0.4 + catIndex * 0.1 + i * 0.05 }}
-                      className="bg-surface border border-white/10 text-text-primary px-3 py-1.5 rounded-lg text-sm font-medium hover:border-accent/50 hover:text-accent transition-colors duration-200"
-                    >
-                      {skill}
-                    </motion.span>
+                    <li key={skill}>
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.3, delay: 0.4 + catIndex * 0.1 + i * 0.05 }}
+                        className="bg-surface border border-white/10 text-text-primary px-3 py-1.5 rounded-lg text-sm font-medium hover:border-accent/50 hover:text-accent transition-colors duration-200 block"
+                      >
+                        {skill}
+                      </motion.span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </motion.div>
             ))}
           </div>
