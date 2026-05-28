@@ -14,7 +14,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -29,7 +30,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-colors duration-300 ${
         scrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
       }`}
     >
@@ -55,6 +56,7 @@ export default function Navbar() {
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           <span className={`w-6 h-0.5 bg-text-primary block transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
           <span className={`w-6 h-0.5 bg-text-primary block transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
