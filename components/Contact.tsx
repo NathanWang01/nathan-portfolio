@@ -20,7 +20,7 @@ export default function Contact() {
       })
       if (res.ok) {
         setStatus('success')
-        ;(e.target as HTMLFormElement).reset()
+        e.currentTarget.reset()
       } else {
         setStatus('error')
       }
@@ -57,27 +57,15 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 text-left"
         >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            required
-            rows={5}
-            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors resize-none"
-          />
+          <label htmlFor="contact-name" className="sr-only">Your Name</label>
+          <input id="contact-name" type="text" name="name" placeholder="Your Name" required
+            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors" />
+          <label htmlFor="contact-email" className="sr-only">Your Email</label>
+          <input id="contact-email" type="email" name="email" placeholder="Your Email" required
+            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors" />
+          <label htmlFor="contact-message" className="sr-only">Your Message</label>
+          <textarea id="contact-message" name="message" placeholder="Your Message" required rows={5}
+            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors resize-none" />
           <button
             type="submit"
             disabled={status === 'sending'}
