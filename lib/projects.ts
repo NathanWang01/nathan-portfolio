@@ -2,7 +2,7 @@ export interface Project {
   title: string
   description: string
   tags: string[]
-  github: string
+  github: string | null
   demo: string | null
   comingSoon?: boolean
 }
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     title: 'Coming Soon',
     description: 'More projects are in the works. Stay tuned!',
     tags: [],
-    github: '',
+    github: null,
     demo: null,
     comingSoon: true,
   },
