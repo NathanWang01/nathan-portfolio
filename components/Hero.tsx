@@ -73,7 +73,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-text-muted hover:text-accent transition-colors"
+              className="text-text-muted hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
             >
               <FiGithub size={22} />
             </a>
@@ -82,7 +82,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-text-muted hover:text-accent transition-colors"
+              className="text-text-muted hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
             >
               <FiLinkedin size={22} />
             </a>
@@ -101,6 +101,7 @@ export default function Hero() {
               src="/avatar.jpg"
               alt="Nathan Wang — Frontend Developer"
               fill
+              sizes="(max-width: 768px) 288px, 384px"
               className="rounded-full object-cover z-10 border-2 border-accent/30"
               priority
             />

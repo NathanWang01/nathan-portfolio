@@ -28,5 +28,6 @@ describe('Hero', () => {
     expect(screen.getByAltText(/Nathan Wang/i)).toBeInTheDocument()
     expect(screen.getByLabelText('GitHub')).toBeInTheDocument()
     expect(screen.getByLabelText('LinkedIn')).toBeInTheDocument()
+    expect(screen.getByText(/I build interactive, responsive web experiences/i)).toBeInTheDocument()
   })
 })
