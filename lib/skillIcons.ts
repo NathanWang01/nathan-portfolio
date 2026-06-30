@@ -1,8 +1,9 @@
 import { IconType } from 'react-icons'
-import { SiJetbrains, SiPython, SiMysql, SiJavascript, SiHtml5, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVscodium, SiGit, SiGithub } from 'react-icons/si'
+import { SiPython, SiMysql, SiJavascript, SiHtml5, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVscodium, SiGit, SiGithub } from 'react-icons/si'
+import { DiJava } from 'react-icons/di'
 
 export const skillIcons: Record<string, IconType> = {
-  'Java': SiJetbrains,
+  'Java': DiJava,
   'Python': SiPython,
   'SQL': SiMysql,
   'JavaScript': SiJavascript,
