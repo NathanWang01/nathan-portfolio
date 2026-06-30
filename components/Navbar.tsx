@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
+  { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
@@ -25,6 +26,11 @@ export default function Navbar() {
     setMenuOpen(false)
   }
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setMenuOpen(false)
+  }
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -35,9 +41,12 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <span className="font-heading font-bold text-xl text-text-primary">
+        <button
+          onClick={handleLogoClick}
+          className="font-heading font-bold text-xl text-text-primary hover:text-accent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+        >
           Nathan <span className="text-accent">Wang</span>
-        </span>
+        </button>
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -45,7 +54,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-text-muted hover:text-accent transition-colors duration-200 font-medium"
+              className="text-text-muted hover:text-accent transition-colors duration-200 font-medium text-base"
             >
               {link.label}
             </a>
