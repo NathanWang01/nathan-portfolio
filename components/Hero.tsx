@@ -31,11 +31,11 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col gap-6"
         >
-          <motion.p variants={itemVariants} className="text-accent font-medium tracking-widest uppercase text-sm">
+          <motion.p variants={itemVariants} className="font-heading text-accent font-semibold tracking-widest uppercase text-sm">
             Hi, I&apos;m
           </motion.p>
 
-          <motion.h1 variants={itemVariants} className="font-heading text-5xl md:text-7xl font-bold text-text-primary leading-tight">
+          <motion.h1 variants={itemVariants} className="font-heading text-6xl md:text-8xl font-bold text-text-primary leading-tight">
             Nathan <span className="text-accent">Wang</span>
           </motion.h1>
 
@@ -55,13 +55,13 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="flex gap-4 flex-wrap">
             <button
               onClick={() => scrollTo('#projects')}
-              className="bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition-colors duration-200"
+              className="bg-accent text-white px-8 py-4 rounded-full font-medium hover:bg-accent/90 transition-colors duration-200"
             >
               View My Work
             </button>
             <button
               onClick={() => scrollTo('#contact')}
-              className="border border-accent text-accent px-6 py-3 rounded-full font-medium hover:bg-accent/10 transition-colors duration-200"
+              className="border border-accent text-accent px-8 py-4 rounded-full font-medium hover:bg-accent/10 transition-colors duration-200"
             >
               Contact Me
             </button>
