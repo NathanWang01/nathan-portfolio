@@ -5,7 +5,7 @@ import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: false, margin: '-100px' })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,10 +32,19 @@ export default function Contact() {
   return (
     <section id="contact" aria-label="Contact" className="py-24 px-6" ref={ref}>
       <div className="max-w-2xl mx-auto text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="font-heading text-accent font-semibold tracking-widest uppercase text-sm mb-3"
+        >
+          Contact
+        </motion.p>
+
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
           className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-4"
         >
           Let&apos;s Work <span className="text-accent">Together</span>
@@ -43,8 +52,8 @@ export default function Contact() {
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="text-text-muted text-lg mb-12"
         >
           Have a project in mind or just want to say hi? I&apos;d love to hear from you.
@@ -52,24 +61,24 @@ export default function Contact() {
 
         <motion.form
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 text-left"
         >
           <label htmlFor="contact-name" className="sr-only">Your Name</label>
           <input id="contact-name" type="text" name="name" placeholder="Your Name" required
-            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors" />
+            className="bg-surface border border-white/10 rounded-xl px-5 py-4 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors" />
           <label htmlFor="contact-email" className="sr-only">Your Email</label>
           <input id="contact-email" type="email" name="email" placeholder="Your Email" required
-            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors" />
+            className="bg-surface border border-white/10 rounded-xl px-5 py-4 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors" />
           <label htmlFor="contact-message" className="sr-only">Your Message</label>
-          <textarea id="contact-message" name="message" placeholder="Your Message" required rows={5}
-            className="bg-surface border border-white/10 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors resize-none" />
+          <textarea id="contact-message" name="message" placeholder="Your Message" required rows={6}
+            className="bg-surface border border-white/10 rounded-xl px-5 py-4 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 transition-colors resize-none" />
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="bg-accent text-white font-medium py-3 px-8 rounded-xl hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/25 transition-all duration-200 disabled:opacity-60"
+            className="bg-accent text-white font-medium py-4 px-8 rounded-xl hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/25 transition-all duration-200 disabled:opacity-60"
           >
             {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
@@ -83,8 +92,8 @@ export default function Contact() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
           className="flex items-center justify-center gap-6 mt-12 flex-wrap"
         >
           <a
