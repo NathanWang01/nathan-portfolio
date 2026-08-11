@@ -1,7 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null)
@@ -45,7 +44,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-4"
+          className="font-heading text-5xl md:text-6xl font-bold text-text-primary mb-4"
         >
           Let&apos;s Work <span className="text-accent">Together</span>
         </motion.h2>
@@ -54,7 +53,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-text-muted text-lg mb-12"
+          className="text-text-muted text-xl md:text-2xl mb-12"
         >
           Have a project in mind or just want to say hi? I&apos;d love to hear from you.
         </motion.p>
@@ -90,37 +89,6 @@ export default function Contact() {
           )}
         </motion.form>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex items-center justify-center gap-6 mt-12 flex-wrap"
-        >
-          <a
-            href="mailto:nathanwang555@gmail.com"
-            className="flex items-center gap-2 text-text-muted hover:text-accent transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-          >
-            <FiMail size={18} aria-hidden="true" /> nathanwang555@gmail.com
-          </a>
-          <a
-            href="https://github.com/NathanWang01"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-text-muted hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-          >
-            <FiGithub size={20} aria-hidden="true" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/nathan-wang-238862243/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-text-muted hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
-          >
-            <FiLinkedin size={20} aria-hidden="true" />
-          </a>
-        </motion.div>
       </div>
     </section>
   )

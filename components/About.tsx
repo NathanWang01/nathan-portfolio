@@ -24,7 +24,7 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-16"
+          className="font-heading text-5xl md:text-6xl font-bold text-text-primary mb-16"
         >
           Who I <span className="text-accent">Am</span>
         </motion.h2>
@@ -36,12 +36,12 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col gap-6"
           >
-            <p className="text-text-muted text-lg leading-relaxed">
+            <p className="text-text-muted text-xl md:text-2xl leading-relaxed">
               I&apos;m Nathan Wang, a frontend developer from the US with a love for clean UI and expressive code.
               Whether it&apos;s a smooth animation or a responsive layout, I care deeply about the details
               that make a web experience feel right.
             </p>
-            <p className="text-text-muted text-lg leading-relaxed">
+            <p className="text-text-muted text-xl md:text-2xl leading-relaxed">
               Outside of coding, you&apos;ll find me experimenting in the kitchen or losing track of time in a good game.
               I bring that same creative energy and attention to detail into everything I build.
             </p>
@@ -58,7 +58,7 @@ export default function About() {
                 <h3 className="text-text-muted uppercase text-xs tracking-widest font-medium mb-4">
                   {category}
                 </h3>
-                <ul className="flex flex-wrap gap-4 list-none p-0 m-0">
+                <ul className="grid [grid-template-columns:repeat(auto-fit,minmax(90px,1fr))] gap-x-4 gap-y-6 w-full list-none p-0 m-0">
                   {items.map((skill, i) => {
                     const Icon = skillIcons[skill]
                     return (
@@ -72,7 +72,7 @@ export default function About() {
                         >
                           {Icon ? (
                             <Icon
-                              size={36}
+                              size={64}
                               className="text-accent/70 group-hover:text-accent transition-colors duration-200"
                               aria-label={skill}
                             />

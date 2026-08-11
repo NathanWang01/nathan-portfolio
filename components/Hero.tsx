@@ -48,20 +48,20 @@ export default function Hero() {
             />
           </motion.div>
 
-          <motion.p variants={itemVariants} className="text-text-muted text-lg leading-relaxed max-w-lg">
+          <motion.p variants={itemVariants} className="text-text-muted text-xl md:text-2xl leading-relaxed max-w-lg">
             I build interactive, responsive web experiences with React — bringing designs to life through clean code and smooth animations.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex gap-4 flex-wrap">
             <button
               onClick={() => scrollTo('#projects')}
-              className="bg-accent text-white px-8 py-4 rounded-full font-medium hover:bg-accent/90 transition-colors duration-200"
+              className="font-sans text-base font-normal bg-accent text-white px-8 py-4 rounded-full hover:bg-accent/90 transition-colors duration-200"
             >
               View My Work
             </button>
             <button
               onClick={() => scrollTo('#contact')}
-              className="border border-accent text-accent px-8 py-4 rounded-full font-medium hover:bg-accent/10 transition-colors duration-200"
+              className="font-sans text-base font-normal border border-accent text-accent px-8 py-4 rounded-full hover:bg-accent/10 transition-colors duration-200"
             >
               Contact Me
             </button>

@@ -11,18 +11,28 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-      transition={{ duration: 0.7, ease: 'easeOut', delay: index * 0.05 }}
+      initial={{ opacity: 0, y: 80, scale: 0.96 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 80, scale: 0.96 }}
+      transition={{ duration: 0.75, ease: 'easeOut', delay: index * 0.05 }}
       className={`min-h-[70vh] bg-surface border border-white/10 rounded-2xl p-8 flex flex-col gap-6
         hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5
         transition-colors duration-300 ${project.comingSoon ? 'opacity-50' : ''}`}
     >
-      <div className="flex-1 rounded-xl bg-white/5 flex items-center justify-center min-h-[240px]">
-        {project.comingSoon ? (
-          <span className="text-text-muted font-heading text-lg">Coming Soon</span>
+      <div className="h-52 md:flex-1 md:h-auto md:min-h-[240px] rounded-xl overflow-hidden bg-white/5">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="w-full h-full object-cover object-top"
+          />
+        ) : project.comingSoon ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-text-muted font-heading text-lg">Coming Soon</span>
+          </div>
         ) : (
-          <span className="text-text-muted text-sm" aria-hidden="true">Preview</span>
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-text-muted text-sm">Preview coming soon</span>
+          </div>
         )}
       </div>
 
@@ -92,7 +102,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 30 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-16"
+            className="font-heading text-5xl md:text-6xl font-bold text-text-primary mb-16"
           >
             Things I&apos;ve <span className="text-accent">Built</span>
           </motion.h2>
