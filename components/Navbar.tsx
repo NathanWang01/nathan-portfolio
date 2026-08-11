@@ -21,8 +21,10 @@ export default function Navbar() {
   }, [])
 
   const handleNavClick = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
     setMenuOpen(false)
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }, 300)
   }
 
   const handleLogoClick = () => {
