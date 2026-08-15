@@ -10,16 +10,21 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('sending')
-    const data = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const data = new FormData(form)
     try {
       const res = await fetch('https://formspree.io/f/mwleqgkr', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          message: data.get('message'),
+        }),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       })
       if (res.ok) {
         setStatus('success')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setStatus('error')
       }
